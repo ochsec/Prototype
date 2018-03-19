@@ -1,2 +1,2 @@
-# Prototype
-A package of Javascript functions for C#
+# ScriptKiddie
+The Javascript functions we know and ❤ for C#
