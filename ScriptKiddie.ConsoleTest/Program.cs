@@ -46,11 +46,17 @@ namespace ScriptKiddie.ConsoleTest
                 Console.WriteLine(num);
             }
 
-            var evenIndexedCollection = array.filter(indexGreaterThanTwo);
+            var evenIndexedCollection = array.filter(indexGreaterThanTwo).Take(2);
             foreach (var num in evenIndexedCollection)
             {
                 Console.WriteLine(num);
             }
+
+            var foundItem = array.find(x => x == 2);
+            Console.WriteLine(foundItem);
+
+            var foundItemWithIndex = array.find((x, i) => x * i > 4);
+            Console.WriteLine(foundItemWithIndex);
         }
 
         public static int timesTwo(int x)
