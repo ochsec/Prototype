@@ -28,14 +28,26 @@ namespace ScriptKiddie.ConsoleTest
 
             list.forEach((str, index) => Console.WriteLine($"Index: {index}, Value: {str}"));
 
-            var newArray = array.map(x => timesTwo(x)).ToList();
-            foreach (int num in newArray)
+            var newEnumerable = array.map(x => timesTwo(x)).ToList();
+            foreach (int num in newEnumerable)
             {
                 Console.WriteLine(num);
             }
 
-            var newIndexedArray = array.map((x, i) => timesTwoPlusIndex(x, i)).ToList();
-            foreach (int num in newIndexedArray)
+            var newIndexedEnumerable = array.map((x, i) => timesTwoPlusIndex(x, i)).ToList();
+            foreach (int num in newIndexedEnumerable)
+            {
+                Console.WriteLine(num);
+            }
+
+            var evenCollection = array.filter(x => x % 2 == 0);
+            foreach (var num in evenCollection)
+            {
+                Console.WriteLine(num);
+            }
+
+            var evenIndexedCollection = array.filter(indexGreaterThanTwo);
+            foreach (var num in evenIndexedCollection)
             {
                 Console.WriteLine(num);
             }
@@ -49,6 +61,11 @@ namespace ScriptKiddie.ConsoleTest
         public static int timesTwoPlusIndex(int x, int i)
         {
             return x * 2 + 1;
+        }
+
+        public static bool indexGreaterThanTwo(int item, int index)
+        {
+            return index > 2;
         }
     }
 }
