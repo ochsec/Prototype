@@ -14,9 +14,8 @@ namespace ScriptKiddie.ConsoleTest
         {
             var filterTester = new FilterTests();
             filterTester.RunTests();
-            int[] arr = { 1, 2, 3, 4, 5 };
-            int result = arr.reduce((x, y) => x + y);
-            Console.WriteLine(result);
+            var reduceTester = new ReduceTests();
+            reduceTester.RunTests();
         }
     }
 }
