@@ -28,36 +28,35 @@ namespace ScriptKiddie
         // Returns first item that returns true from function
         public static TSource find<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> f)
         {
-            List<TSource> matches = new List<TSource>();
+            TSource match = default(TSource);
             foreach (TSource item in source)
             {
                 if (f(item))
                 {
-                    matches.Add(item);
+                    match = item;
                     break;
                 }                    
             }
 
-            return matches[0];
+            return match;
         }
 
         // Returns first item that returns true from function that takes item, index
         public static TSource find<TSource>(this IEnumerable<TSource> source, Func<TSource, int, bool> f)
         {
             int index = 0;
-            List<TSource> matches = new List<TSource>();
+            TSource match = default(TSource);
             foreach (TSource item in source)
             {
                 if (f(item, index))
                 {
-                    matches.Add(item);
+                    match = item;
                     break;
                 }
                 index++;
-
             }
 
-            return matches[0];
+            return match;
         }
 
         // do something with each element, returns void
@@ -91,6 +90,23 @@ namespace ScriptKiddie
                 yield return f(item, index);
                 index++;
             }                
+        }
+
+        // Only returns the last item, does not remove from IEnumerable
+        public static TSource pop<TSource>(this IEnumerable<TSource> source)
+        {
+            var stack = new Stack<TSource>(source);
+            var last = stack.Pop();
+            return last;
+        }
+
+        public static TSource reduce<TSource>(this IEnumerable<TSource> source, Func<TSource, TSource, TSource> f)
+        {
+            var acc = default(TSource);
+            foreach(TSource item in source)
+                acc = f(acc, item);
+
+            return acc;
         }
     }
 }
