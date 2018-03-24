@@ -50,6 +50,10 @@
     <None Include="LICENSE" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ScriptKiddie.Test\ScriptKiddie.Test.csproj">
+      <Project>{8d1d1ebf-9f6c-4145-b476-aa93cc5ae3f7}</Project>
+      <Name>ScriptKiddie.Test</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ScriptKiddie\ScriptKiddie.csproj">
       <Project>{f3f4fec9-f8e4-4217-88e7-66a6b738871b}</Project>
       <Name>ScriptKiddie</Name>

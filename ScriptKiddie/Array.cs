@@ -54,6 +54,7 @@ namespace ScriptKiddie
                     break;
                 }
                 index++;
+
             }
 
             return matches[0];
