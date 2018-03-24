@@ -9,6 +9,13 @@ namespace ScriptKiddie.Test
     [TestClass]
     public class FilterTests
     {
+        public void RunTests()
+        {
+            Filter_Integer_Array_Even();
+            Filter_Integer_Array_Times_Index_Multiple_Of_Three();
+            Filter_Strings_By_Substring_Chained();
+        }
+
         [TestMethod]
         public void Filter_Integer_Array_Even()
         {
