@@ -5,6 +5,35 @@ namespace ScriptKiddie
 {
     public static class ScriptKiddieArray
     {
+        public static IEnumerable<TSource> concat<TSource>(this IEnumerable<TSource> source, IEnumerable<TSource> vector)
+        {
+            var list = new List<TSource>(source);
+            list.AddRange(vector);
+            return list as IEnumerable<TSource>;
+        }
+
+        public static bool every<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> f)
+        {
+            bool result = true;
+            foreach (TSource item in source)
+                if (!f(item))
+                    result = false;
+            return result;
+        }
+
+        public static bool every<TSource>(this IEnumerable<TSource> source, Func<TSource, int, bool> f)
+        {
+            bool result = true;
+            int index = 0;
+            foreach (TSource item in source)
+            {
+                if (!f(item, index))
+                    result = false;
+                index++;
+            }
+            return result;
+        }
+
         // Chainable filter
         public static IEnumerable<TSource> filter<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> f)
         {

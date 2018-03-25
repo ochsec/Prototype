@@ -52,6 +52,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReduceTests.cs" />
     <Compile Include="FindTests.cs" />
+    <Compile Include="ConcatTests.cs" />
+    <Compile Include="EveryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
