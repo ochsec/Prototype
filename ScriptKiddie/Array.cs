@@ -39,11 +39,7 @@ namespace ScriptKiddie
         }
 
         // Chainable map function
-        public static IEnumerable<TReturn> map<TSource, TReturn>(this IEnumerable<TSource> source, Func<TSource, TReturn> f) {
-            foreach (TSource item in source)
-                yield return f(item);
-        }
-
+        public static IEnumerable<TReturn> map<TSource, TReturn>(this IEnumerable<TSource> source, Func<TSource, TReturn> f) => source.Select(f);
         // Chainable map against function that takes item, index
         public static IEnumerable<TReturn> map<TSource, TReturn>(this IEnumerable<TSource> source, Func<TSource, int, TReturn> f) => source.Select(f);
 
