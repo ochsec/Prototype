@@ -9,12 +9,6 @@ namespace ScriptKiddie.Test
     [TestClass]
     public class ReduceTests
     {
-        public void RunTests()
-        {
-            Reduce_Integer_Array();
-            Reduce_List_Of_Strings();
-        }
-
         [TestMethod]
         public void Reduce_Integer_Array()
         {

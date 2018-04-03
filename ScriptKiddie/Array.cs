@@ -88,6 +88,22 @@ namespace ScriptKiddie
             return match;
         }
 
+        public static int findIndex<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> f)
+        {
+            int index = -1;
+            int counter = 0;
+            foreach (TSource item in source)
+            {
+                if (f(item))
+                {
+                    index = counter;
+                    break;
+                }
+                counter++;
+            }
+            return index;
+        }
+
         // do something with each element, returns void
         public static void forEach<TSource>(this IEnumerable<TSource> source, Action<TSource> action)
         {
